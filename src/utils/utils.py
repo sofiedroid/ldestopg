@@ -75,6 +75,6 @@ def generate_dataframe(key):
         # print("Done with parsing data from {}".format(key))
         return res
 
-    fetch_json("DMG")
-    generate_dataframe("DMG")
-    df_dmg = pd.DataFrame(generate_dataframe("DMG"))
+fetch_json("DMG")
+generate_dataframe("DMG")
+df_dmg = pd.DataFrame(generate_dataframe("DMG"))
