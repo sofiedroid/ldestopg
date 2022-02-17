@@ -8,7 +8,7 @@ today = time.localtime()
 time_str = time.strftime("%m-%d-%YT%H:%M:%S.309Z", today)
 
 # define time from when to start fetching LDES.#
-fetch_from = "2021-10-20T00:00:00.309Z" ## change to 29 september 2021
+fetch_from = "2022-02-16T00:00:00.309Z" ## change to 29 september 2021
 context = "src/utils/context.jsonld"
 
 endpoints = {
@@ -39,13 +39,13 @@ endpoints = {
 ROOT_DIR = os.path.abspath(os.curdir)
 
 filepath = {
-    "DMG": ROOT_DIR + "/data/dmg_obj.json",
-    "HVA": ROOT_DIR + "/data/hva_obj.json",
-    "STAM": ROOT_DIR + "/data/stam_obj.json",
-    "IM": ROOT_DIR + "/data/im_obj.json",
-    "ARCH": ROOT_DIR + "/data/arch_obj.json",
-    "THES": ROOT_DIR + "/data/thes.json",
-    "AGENT": ROOT_DIR + "/data/agents.json"
+    "DMG": ROOT_DIR + "\\data\\dmg_obj.json",
+    "HVA": ROOT_DIR + "\\data\\hva_obj.json",
+    "STAM": ROOT_DIR + "\\data\\stam_obj.json",
+    "IM": ROOT_DIR + "\\data\\im_obj.json",
+    "ARCH": ROOT_DIR + "\\data\\arch_obj.json",
+    "THES": ROOT_DIR + "\\data\\thes.json",
+    "AGENT": ROOT_DIR + "\\data\\agents.json"
 }
 
 # define columns to for dataframes
@@ -74,3 +74,7 @@ def generate_dataframe(key):
         print("Done with parsing data from {}".format(key))
         # print("Done with parsing data from {}".format(key))
         return res
+
+    fetch_json("DMG")
+    generate_dataframe("DMG")
+    df_dmg = pd.DataFrame(generate_dataframe("DMG"))
