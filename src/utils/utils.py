@@ -78,3 +78,16 @@ def generate_dataframe(key):
 fetch_json("DMG")
 generate_dataframe("DMG")
 df_dmg = pd.DataFrame(generate_dataframe("DMG"))
+
+def fetch_objectnumber(df, range, json):
+    """parse object number from json"""
+    try:
+        object_number = json["Entiteit.identificator"]
+        for x in object_number:
+            try:
+                df.at[range, "objectnumber"] = x["skos:notation"]["@value"]
+            except Exception:
+                pass
+
+    except Exception:
+        pass
